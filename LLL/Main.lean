@@ -286,9 +286,8 @@ theorem lovasz_local_lemma
                   {
                     rw [not_mem_singleton]
                     apply by_contradiction
-                    intro not_be_neq_a
-                    rw [Ne.def] at not_be_neq_a
-                    have b_eq_a := by_contradiction not_be_neq_a
+                    intro b_eq_a
+                    push_neg at b_eq_a
                     rw [b_eq_a] at b_in_S_cap_Gam_a
                     exact (not_mem_mono (inter_subset_right S (Γ a)) (h_no_self_loops a)) b_in_S_cap_Gam_a
                   }
